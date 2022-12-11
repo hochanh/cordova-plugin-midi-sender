@@ -1,10 +1,10 @@
 {
-  "version": "0.1.3",
+  "version": "0.2.0",
   "name": "cordova-plugin-midi-sender",
   "cordova_name": "MIDISender",
   "description": "MIDI Communication Plugin",
-  "repo": "https://github.com/josiaho/cordova-plugin-midi-sender.git",
-  "issue": "https://github.com/josiaho/cordova-plugin-midi-sender/issues",
+  "repo": "https://github.com/hochanh/cordova-plugin-midi-sender.git",
+  "issue": "https://github.com/hochanh/cordova-plugin-midi-sender/issues",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/josiaho/cordova-plugin-midi-sender.git"
+    "url": "git+https://github.com/hochanh/cordova-plugin-midi-sender.git"
   },
   "keywords": [
     "cordova",
@@ -39,7 +39,7 @@
   "author": "Josiah Oslund",
   "license": "Apache 2.0",
   "bugs": {
-    "url": "https://github.com/josiaho/cordova-plugin-midi-sender/issues"
+    "url": "https://github.com/hochanh/cordova-plugin-midi-sender/issues"
   },
-  "homepage": "https://github.com/josiaho/cordova-plugin-midi-sender"
+  "homepage": "https://github.com/hochanh/cordova-plugin-midi-sender"
 }

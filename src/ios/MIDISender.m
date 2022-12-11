@@ -40,73 +40,22 @@ NSString* receiveCallbackId;
             {
                 UInt8 status = packet->data[j];
                 
-                //size = 2;
                 size = 3;
+
+                // Create an object with a simple success property.
+                NSDictionary *jsonObj = [
+                    [NSDictionary alloc] initWithObjectsAndKeys: [NSString stringWithFormat:@"%d", status],
+                    @"channel",
+                    [NSString stringWithFormat:@"%d", packet->data[j + 1]],
+                    @"data",
+                    [NSString stringWithFormat:@"%d", packet->data[j + 2]],
+                    @"value",
+                    nil
+                ];
                 
-                // @debug
-                //NSLog(@"MIDISender:midiReceive: status %d received %d aaaaannd %d", status, packet->data[j + 1], packet->data[j + 2]);
-                
-                
-                // program change
-                if(status >= 192 && status <= 207){
-                    // @debug
-                    //NSLog(@"MIDISender:midiReceive: Program Change received: status %d on channel %d", packet->data[j + 1], status);
-
-                    // Create an object with a simple success property.
-                    NSDictionary *jsonObj = [
-                        [NSDictionary alloc] initWithObjectsAndKeys: [NSString stringWithFormat:@"%d", status], 
-                        @"channel", 
-                        [NSString stringWithFormat:@"%d", packet->data[j + 1]], 
-                        @"data", 
-                        nil
-                    ];
-                    
-                    CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsDictionary: jsonObj];
-                    
-                    [pluginResult setKeepCallbackAsBool:YES];
-
-                    [midiSender.commandDelegate sendPluginResult:pluginResult callbackId:receiveCallbackId];
-                } else if(status >= 144 && status <= 159){ // Note
-                    // @debug
-                    //NSLog(@"MIDISender:midiReceive: Note received: status %d on channel %d", packet->data[j + 1], status);
-
-                    // Create an object with a simple success property.
-                    NSDictionary *jsonObj = [
-                        [NSDictionary alloc] initWithObjectsAndKeys: [NSString stringWithFormat:@"%d", status],
-                        @"channel",
-                        [NSString stringWithFormat:@"%d", packet->data[j + 1]],
-                        @"data",
-                        [NSString stringWithFormat:@"%d", packet->data[j + 2]],
-                        @"value",
-                        nil
-                    ];
-                    
-                    CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsDictionary: jsonObj];
-                    
-                    [pluginResult setKeepCallbackAsBool:YES];
-
-                    [midiSender.commandDelegate sendPluginResult:pluginResult callbackId:receiveCallbackId];
-                } else if(status >= 176 && status <= 191){ // CC
-                   // @debug
-                    //NSLog(@"MIDISender:midiReceive: CC Channel %d Data %d Value %d", status, packet->data[j + 1], packet->data[j + 2]);
-
-                   // Create an object with a simple success property.
-                   NSDictionary *jsonObj = [
-                       [NSDictionary alloc] initWithObjectsAndKeys: [NSString stringWithFormat:@"%d", status],
-                       @"channel",
-                       [NSString stringWithFormat:@"%d", packet->data[j + 1]],
-                       @"data",
-                       [NSString stringWithFormat:@"%d", packet->data[j + 2]],
-                       @"value",
-                       nil
-                   ];
-                   
-                   CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsDictionary: jsonObj];
-                   
-                   [pluginResult setKeepCallbackAsBool:YES];
-
-                   [midiSender.commandDelegate sendPluginResult:pluginResult callbackId:receiveCallbackId];
-               }
+                CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsDictionary: jsonObj];
+                [pluginResult setKeepCallbackAsBool:YES];
+                [midiSender.commandDelegate sendPluginResult:pluginResult callbackId:receiveCallbackId];
             }
         }
     }

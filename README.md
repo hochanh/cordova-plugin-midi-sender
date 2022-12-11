@@ -1,19 +1,15 @@
 MIDISender
 ======
 
-This is a fork of [cordova-plugin-midi-sender](https://github.com/jonathanwkelly/cordova-plugin-midi-sender). I added the ability to send/receive MIDI **note** and **CC** message types to [Jonathan's](https://github.com/jonathanwkelly) work.
+This is a fork of [cordova-plugin-midi-sender](https://github.com/jonathanwkelly/cordova-plugin-midi-sender).
 
 
 Installation
 -------
 
-NPM:
-
-	cordova plugin add cordova-plugin-midi-sender
-
 Repository:
 
-	cordova plugin add https://github.com/josiaho/cordova-plugin-midi-sender.git
+	cordova plugin add https://github.com/hochanh/cordova-plugin-midi-sender.git
 
 Dependencies
 -------
@@ -33,7 +29,6 @@ Methods
 	      msg.channel = MIDI channel (1-16)
 	      msg.type = Type of MIDI message: 'Program Change', 'Control Change', 'Note On', 'Note off'
 	      msg.data = MIDI Data: <number>
-		  msg.note = MIDI Data: <number> for PC/CC (1-128), or Note (i.e. "C3") for Note On/Off
 	      msg.value = Not present for 'Program Change' messages
 	    */
 	    
