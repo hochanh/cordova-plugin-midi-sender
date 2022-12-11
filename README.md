@@ -32,7 +32,8 @@ Methods
 	    /* MESSAGE DATA
 	      msg.channel = MIDI channel (1-16)
 	      msg.type = Type of MIDI message: 'Program Change', 'Control Change', 'Note On', 'Note off'
-	      msg.data = MIDI Data: <number> for PC/CC (1-128), or Note (i.e. "C3") for Note On/Off
+	      msg.data = MIDI Data: <number>
+		  msg.note = MIDI Data: <number> for PC/CC (1-128), or Note (i.e. "C3") for Note On/Off
 	      msg.value = Not present for 'Program Change' messages
 	    */
 	    
